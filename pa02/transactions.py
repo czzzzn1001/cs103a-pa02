@@ -81,7 +81,7 @@ class Transaction:
         return to_trans_dict_list(tuples)
 
     # important: the input year should be string type length of 4
-    def summarize_by_month(self,year):
+    def summarize_by_year(self,year):
         ''' select a certain year from the time '''
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
