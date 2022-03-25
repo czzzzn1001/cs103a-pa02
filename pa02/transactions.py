@@ -18,8 +18,9 @@ class Transaction:
     def __init__(self,dbfile):
         con= sqlite3.connect(dbfile)
         cur = con.cursor()
+        # FIXME: change types here 
         cur.execute('''CREATE TABLE IF NOT EXISTS transactions
-                    (item_no int, amount int,category text,date datetime,description text)''')
+                    (item_no int, amount int,category text,date text,description text)''')
         con.commit()
         con.close()
         self.dbfile = dbfile
@@ -30,6 +31,7 @@ class Transaction:
         '''
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
+        # FIXME: modify insertion here
         cur.execute("INSERT INTO transactions VALUES(?,?,?,?,?)"
         ,(item['item_no'],item['amount'],item['category'],item['date'],item['description']))
         con.commit()
@@ -74,7 +76,7 @@ class Transaction:
         ''' select a certain month from the time '''
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute("SELECT * from transactions where strftime('%m',date(dd))=(?)",(month,))
+        cur.execute("SELECT * from transactions where strftime('%m', date) = (?)",(month,))
         tuples = cur.fetchall()
         con.commit()
         con.close()
@@ -85,7 +87,7 @@ class Transaction:
         ''' select a certain year from the time '''
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute("SELECT * from transactions where strftime('%Y',date(dd))=(?)",(year,))
+        cur.execute("SELECT * from transactions where strftime('%Y',date) = (?)",(year,))
         tuples = cur.fetchall()
         con.commit()
         con.close()
