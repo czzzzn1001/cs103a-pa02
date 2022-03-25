@@ -126,9 +126,18 @@ def process_choice(choice):
         else:
             for tran in trans:
                 print(tran)
+    elif choice == '10':
+        cat = input("Enter the category: ")
+        trans = transactions.summarize_by_cate(cat)
+        if len(trans)==0:
+            print('💔 No record for that date. Sorry!')
+        else:
+            for tran in trans:
+                print(tran)
+    elif choice == '11':
+        print(menu)
     else:
         print("choice",choice,"not yet implemented")
-
     choice = input("> ")
     return(choice)
 

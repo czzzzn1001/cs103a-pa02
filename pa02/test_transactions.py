@@ -34,6 +34,11 @@ def test_summarize_by_date():
     for tran in selected_trans:
         assert tran['date'] == '2022-10-18'
 
-
-
-    
+@pytest.mark.summarize_by_cat
+def test_summarize_by_cat():
+    tran = transactions.summarize_by_cate('A')
+    assert 0 == tran[0]['item_no']
+    assert 1 == tran[0]['amount']
+    assert 'A' == tran[0]["category"]
+    assert "1996-02-11" == tran[0]["date"]
+    assert "ABCD" == tran[0]["description"]
