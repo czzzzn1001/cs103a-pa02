@@ -116,3 +116,12 @@ def test_update(med_db):
     cat2 = med_db.select_one(rowid)
     assert cat2['name']==cat1['name']
     assert cat2['desc']==cat1['desc']
+
+@pytest.mark.select_one
+def test_add0(small_db):
+    ''' select item with row id 2 and check it is 
+        {'name':'car','desc':'gas and repairs'}
+    '''
+
+    assert small_db.select_one(2)['name'] == 'car'
+    assert small_db.select_one(2)['desc'] == 'gas and repairs'
