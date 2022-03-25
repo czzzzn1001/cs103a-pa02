@@ -105,16 +105,16 @@ def process_choice(choice):
         all_trans = transactions.select_all()
         print('Select one of the following item number to delete: ')
         if len(all_trans)==0:
-            print('💔 Ooops, the database is empty. There\'s nothing to delete.')
+            print('Ooops, the database is empty. There\'s nothing to delete.')
         else:
             for tran in all_trans:
                 print(tran['item_no'])
             item_number = input('Enter item number: ')
             transactions.delete(item_no=item_number)
-            print('Deleted! 😀')
+            print('Deleted!')
     elif choice=='7':
         all_trans = transactions.select_all()
-        print('Summary by date 📅')
+        print('Summary by date')
         year = input('Which year? ').strip()
         month = input('which month? ').strip()
         day = input('which day? ').strip()
@@ -122,7 +122,7 @@ def process_choice(choice):
         print(search_term)
         trans = transactions.summarize_by_date(search_term)
         if len(trans)==0:
-            print('💔 No record for that date. Sorry!')
+            print('No record for that date. Sorry!')
         else:
             for tran in trans:
                 print(tran)
