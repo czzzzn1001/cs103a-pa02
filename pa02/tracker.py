@@ -87,9 +87,9 @@ def process_choice(choice):
         all_trans = transactions.select_all()
         last_one_item_no = all_trans[-1]["item_no"]
         print(last_one_item_no)
-        year = input("Enter year: ")
-        month = input("Enter month: ")
-        day = input("Enter day: ")
+        year = input("Enter year: ") # has to be in YYYY form
+        month = input("Enter month: ") #has to be in MM form
+        day = input("Enter day: ") # has to be in DD form
         date = year + "-" + month + "-" + day
         amount_enter = input("Enter amount: ")
         amount = int(amount_enter)
