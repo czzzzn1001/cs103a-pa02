@@ -4,6 +4,7 @@ test_categories runs unit and integration tests on the category module
 
 import pytest
 from category import Category, to_cat_dict
+from transactions import Transaction
 
 @pytest.fixture
 def dbfile(tmpdir):
@@ -116,3 +117,31 @@ def test_update(med_db):
     cat2 = med_db.select_one(rowid)
     assert cat2['name']==cat1['name']
     assert cat2['desc']==cat1['desc']
+
+
+
+
+
+# @pytest.fixture
+# def dbfile(tmpdir):
+#     ''' create a database file in a temporary file system '''
+#     return tmpdir.join('test_tracker.db')
+
+# @pytest.fixture
+# def empty_db(dbfile):
+#     ''' create an empty database '''
+#     db = Transaction(dbfile)
+#     yield db
+
+# @pytest.fixture
+# def small_db(db):
+#     ''' create a small database, and tear it down later'''
+#     tran1 = {'item_no': 0,'amount': 1, "category": 'A', "date": "1996-02-11", "description": "ABCD"}
+#     tran2 = {'item_no': 1,'amount': 2, "category": 'B', "date": "1997-03-12", "description": "EFGH"}
+#     id1=db.add(tran1)
+#     id2=db.add(tran2)
+#     yield db
+#     db.delete(id1)
+#     db.delete(id2)
+
+
