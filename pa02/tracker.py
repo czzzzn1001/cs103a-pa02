@@ -151,7 +151,7 @@ def process_choice(choice):
 
     elif choice== '9':
         print('Summarizing transactions by year: ')
-        year = input("Enter the month (e.g. 2021 for 2021):   ")
+        year = input("Enter the year (e.g. 2021 for 2021):   ")
         trans = transactions.summarize_by_year(year)
         print_transactions(trans)
     elif choice == '10':
