@@ -122,16 +122,16 @@ def process_choice(choice):
         all_trans = transactions.select_all()
         print('Select one of the following item number to delete: ')
         if len(all_trans)==0:
-            print('💔 Ooops, the database is empty. There\'s nothing to delete.')
+            print('Ooops, the database is empty. There\'s nothing to delete.')
         else:
             for tran in all_trans:
                 print(tran['item_no'])
             item_number = input('Enter item number: ')
             transactions.delete(item_no=item_number)
-            print('Deleted! 😀')
+            print('Deleted!')
     elif choice=='7':
         all_trans = transactions.select_all()
-        print('Summary by date 📅')
+        print('Summary by date')
         year = input('Which year? ').strip()
         month = input('which month? ').strip()
         day = input('which day? ').strip()
@@ -139,11 +139,10 @@ def process_choice(choice):
         print(search_term)
         trans = transactions.summarize_by_date(search_term)
         if len(trans)==0:
-            print('💔 No record for that date. Sorry!')
+            print('No record for that date. Sorry!')
         else:
             for tran in trans:
                 print(tran)
-
     elif choice== '8':
         print('Summarizing transactions by month: ')
         month = input("Enter the month (e.g. 01 for January):   ")
@@ -155,10 +154,19 @@ def process_choice(choice):
         year = input("Enter the month (e.g. 2021 for 2021):   ")
         trans = transactions.summarize_by_year(year)
         print_transactions(trans)
+    elif choice == '10':
+        cat = input("Enter the category: ")
+        trans = transactions.summarize_by_cate(cat)
+        if len(trans)==0:
+            print('No record for that date. Sorry!')
+        else:
+            for tran in trans:
+                print(tran)
 
+    elif choice == '11':
+        print(menu)
     else:
         print("choice",choice,"not yet implemented")
-
     choice = input("> ")
     return(choice)
 
@@ -184,13 +192,12 @@ def print_transactions(items):
         return
     print('\n')
 
-    # FIXME: change types here 
+
     print("%-10s %-10s %-10s %-10s %-30s"%(
         'item #','amount','category','date','description'))
     print('-'*60)
     for item in items:
         values = tuple(item.values()) 
-        # FIXME: change types here 
         print("%-10d %-10d %-10s %-10s %-30s"%values)
 
 def print_category(cat):
