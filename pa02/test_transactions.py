@@ -14,4 +14,8 @@ def test_add_transaction():
     transactions.add(new_tran)
     assert 1 == len(transactions.select_all())
 
+@pytest.mark.summarize_by_cat
+def test_summarize_by_cat():
+    tran = transactions.summarize_by_cate('A')
+    assert tran == {'item_no': 0,'amount': 1, "category": 'A', "date": "1996-02-11", "description": "ABCD"}
     
