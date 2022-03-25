@@ -81,15 +81,19 @@ def process_choice(choice):
         category.update(rowid,cat)
     elif choice=='4':
         all_trans = transactions.select_all()
+        if len(all_trans) == 0:
+            print('No transaction recorded.')
         for tran in all_trans:
             print(tran)
     elif choice=="5":
         all_trans = transactions.select_all()
-        last_one_item_no = all_trans[-1]["item_no"]
-        print(last_one_item_no)
-        year = input("Enter year: ") # has to be in YYYY form
-        month = input("Enter month: ") #has to be in MM form
-        day = input("Enter day: ") # has to be in DD form
+        if len(all_trans) == 0:
+            last_one_item_no = 0
+        else:
+            last_one_item_no = all_trans[-1]["item_no"]
+        year = input("Enter year: ")# has to be in YYYY form
+        month = input("Enter month: ")#has to be in MM form
+        day = input("Enter day: ")# has to be in DD form
         date = year + "-" + month + "-" + day
         amount_enter = input("Enter amount: ")
         amount = int(amount_enter)
@@ -97,6 +101,31 @@ def process_choice(choice):
         description = input("Enter description: ")
         trans = {"item_no": last_one_item_no + 1, 'amount': amount, 'category': category, 'date': date, 'description': description}
         transactions.add(trans)
+    elif choice=='6':
+        all_trans = transactions.select_all()
+        print('Select one of the following item number to delete: ')
+        if len(all_trans)==0:
+            print('💔 Ooops, the database is empty. There\'s nothing to delete.')
+        else:
+            for tran in all_trans:
+                print(tran['item_no'])
+            item_number = input('Enter item number: ')
+            transactions.delete(item_no=item_number)
+            print('Deleted! 😀')
+    elif choice=='7':
+        all_trans = transactions.select_all()
+        print('Summary by date 📅')
+        year = input('Which year? ').strip()
+        month = input('which month? ').strip()
+        day = input('which day? ').strip()
+        search_term = year+'-'+month+'-'+day
+        print(search_term)
+        trans = transactions.summarize_by_date(search_term)
+        if len(trans)==0:
+            print('💔 No record for that date. Sorry!')
+        else:
+            for tran in trans:
+                print(tran)
     else:
         print("choice",choice,"not yet implemented")
 
