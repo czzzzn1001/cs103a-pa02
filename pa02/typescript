@@ -1,0 +1,123 @@
+Script started on 2022-03-24 23:31:13-04:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="152" LINES="42"]
+]0;root@LAPTOP-FDTNRE2C: /mnt/c/Users/82107/OneDrive/桌面/cs103a-pa02-team36/pa02root@LAPTOP-FDTNRE2C:/mnt/c/Users/82107/OneDrive/桌面/cs103a-pa02-team36/pa02# python3 tracker.py
+
+0. quit
+1. show categories
+2. add category
+3. modify category
+4. show transactions
+5. add transaction
+6. delete transaction
+7. summarize transactions by date
+8. summarize transactions by month
+9. summarize transactions by year
+10. summarize transactions by category
+11. print this menu
+
+> 4
+{'item_no': 1, 'amount': 1, 'category': 'A', 'date': '1996-02-11', 'description': 'ABCD'}
+{'item_no': 2, 'amount': 2, 'category': 'B', 'date': '1997-03-12', 'description': 'QWER'}
+{'item_no': 3, 'amount': 3, 'category': 'C', 'date': '1998-04-13', 'description': 'WASZ'}
+> 5
+Enter year: 1999
+Enter month: 05
+Enter day: 14
+Enter amount: D
+Traceback (most recent call last):
+  File "tracker.py", line 215, in <module>
+    toplevel()
+  File "tracker.py", line 181, in toplevel
+    choice = process_choice(choice)
+  File "tracker.py", line 116, in process_choice
+    amount = int(amount_enter)
+ValueError: invalid literal for int() with base 10: 'D'
+]0;root@LAPTOP-FDTNRE2C: /mnt/c/Users/82107/OneDrive/桌面/cs103a-pa02-team36/pa02root@LAPTOP-FDTNRE2C:/mnt/c/Users/82107/OneDrive/桌面/cs103a-pa02-team36/pa02# python3 tracker.py
+
+0. quit
+1. show categories
+2. add category
+3. modify category
+4. show transactions
+5. add transaction
+6. delete transaction
+7. summarize transactions by date
+8. summarize transactions by month
+9. summarize transactions by year
+10. summarize transactions by category
+11. print this menu
+
+> 4
+{'item_no': 1, 'amount': 1, 'category': 'A', 'date': '1996-02-11', 'description': 'ABCD'}
+{'item_no': 2, 'amount': 2, 'category': 'B', 'date': '1997-03-12', 'description': 'QWER'}
+{'item_no': 3, 'amount': 3, 'category': 'C', 'date': '1998-04-13', 'description': 'WASZ'}
+> 5
+Enter year: 1998
+Enter month: 05
+Enter day: 14
+Enter amount: 4
+Enter category: D
+Enter description: aodskfs
+> 4
+{'item_no': 1, 'amount': 1, 'category': 'A', 'date': '1996-02-11', 'description': 'ABCD'}
+{'item_no': 2, 'amount': 2, 'category': 'B', 'date': '1997-03-12', 'description': 'QWER'}
+{'item_no': 3, 'amount': 3, 'category': 'C', 'date': '1998-04-13', 'description': 'WASZ'}
+{'item_no': 4, 'amount': 4, 'category': 'D', 'date': '1998-05-14', 'description': 'aodskfs'}
+> 6
+Select one of the following item number to delete: 
+1
+2
+3
+4
+Enter item number: 4
+Deleted!
+> 4
+{'item_no': 1, 'amount': 1, 'category': 'A', 'date': '1996-02-11', 'description': 'ABCD'}
+{'item_no': 2, 'amount': 2, 'category': 'B', 'date': '1997-03-12', 'description': 'QWER'}
+{'item_no': 3, 'amount': 3, 'category': 'C', 'date': '1998-04-13', 'description': 'WASZ'}
+> 7
+Summary by date
+Which year? 1997
+which month? 03
+which day? 12
+1997-03-12
+{'item_no': 2, 'amount': 2, 'category': 'B', 'date': '1997-03-12', 'description': 'QWER'}
+> 8
+Summarizing transactions by month: 
+Enter the month (e.g. 01 for January):   03
+
+
+item #     amount     category   date       description                   
+------------------------------------------------------------
+2          2          B          1997-03-12 QWER                          
+> 9
+Summarizing transactions by year: 
+Enter the year (e.g. 2021 for 2021):   1998
+
+
+item #     amount     category   date       description                   
+------------------------------------------------------------
+3          3          C          1998-04-13 WASZ                          
+> 10
+Enter the category: B
+{'item_no': 2, 'amount': 2, 'category': 'B', 'date': '1997-03-12', 'description': 'QWER'}
+> 11
+
+0. quit
+1. show categories
+2. add category
+3. modify category
+4. show transactions
+5. add transaction
+6. delete transaction
+7. summarize transactions by date
+8. summarize transactions by month
+9. summarize transactions by year
+10. summarize transactions by category
+11. print this menu
+
+> 0
+bye
+]0;root@LAPTOP-FDTNRE2C: /mnt/c/Users/82107/OneDrive/桌面/cs103a-pa02-team36/pa02root@LAPTOP-FDTNRE2C:/mnt/c/Users/82107/OneDrive/桌面/cs103a-pa02-team36/pa02# exit
+exit
+
+Script done on 2022-03-24 23:37:34-04:00 [COMMAND_EXIT_CODE="0"]
