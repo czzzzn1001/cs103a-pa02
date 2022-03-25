@@ -95,17 +95,6 @@ def process_choice(choice):
 #                 'date':date, 'description':description}
 #         transactions.add(trans)
 
-    elif choice== '8':
-        print('Summarizing transactions by month: ')
-        month = input("Enter the month (e.g. 01 for January):   ")
-        trans = transactions.summarize_by_month(month)
-        print_transactions(trans)
-
-    elif choice== '9':
-        print('Summarizing transactions by year: ')
-        year = input("Enter the month (e.g. 2021 for 2021):   ")
-        trans = transactions.summarize_by_year(year)
-        print_transactions(trans)
         
     elif choice=='4':
         all_trans = transactions.select_all()
@@ -154,6 +143,18 @@ def process_choice(choice):
         else:
             for tran in trans:
                 print(tran)
+
+    elif choice== '8':
+        print('Summarizing transactions by month: ')
+        month = input("Enter the month (e.g. 01 for January):   ")
+        trans = transactions.summarize_by_month(month)
+        print_transactions(trans)
+
+    elif choice== '9':
+        print('Summarizing transactions by year: ')
+        year = input("Enter the month (e.g. 2021 for 2021):   ")
+        trans = transactions.summarize_by_year(year)
+        print_transactions(trans)
 
     else:
         print("choice",choice,"not yet implemented")
